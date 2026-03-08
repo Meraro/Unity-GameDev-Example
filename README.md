@@ -89,13 +89,11 @@ UniversalController.StateManager        (던전 레벨)
 
 핵심은 두 단계로 나누는 것이었습니다.
 
-1. **Action Queue**
+1. **Action 처리 루프**
 
 플레이어의 선택을 Action으로 변환해 Queue에 넣고, 모든 행동을 같은 방식으로 순서대로 처리합니다.
 
-1. **처리 루프**
-
-Controller가 Queue를 계속 확인하면서 Action을 하나씩 꺼내 실행합니다. Action이 처리 중 파생 Action을 만들면 Queue 앞에 다시 넣고, 루프는 이 새 Action들을 이어서 처리합니다.
+이후 Controller가 Queue를 계속 확인하면서 Action을 하나씩 꺼내 실행합니다. Action이 처리 중 파생 Action을 만들면 Queue 앞에 다시 넣고, 루프는 이 새 Action들을 이어서 처리합니다.
 
 ```
 플레이어가 SpellCastAction을 Queue에 삽입
